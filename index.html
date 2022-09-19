@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <title>DOG TRACE</title>
+</head>
+<body>
+    <header>
+        <h1><a href="file:///C:/Users/user/Desktop/kisoo/code/dog%20trace/index.html"><img src="images/logo.png"></a></h1>
+        <button class="my"><img src="images/my.png"></button>
+        <button class="navBtn">
+            <span class="s1"></span>
+            <span class="s2"></span>
+            <span class="s3"></span>
+        </button>
+
+        <nav>
+            <ul class="gnb">
+                <li><a href="#" class="tit">CHECK</a>
+                    <ul class="sub">
+                        <li><a href="#">배변</a></li>
+                        <li><a href="#">양치</a></li>
+                        <li><a href="#">사료</a></li>
+                        <li><a href="#">산책</a></li>
+                        <li><a href="#">체중</a></li>
+                        <li><a href="#">메모</a></li>
+                        <li><a href="#">병원</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="tit">HASH TAG</a>
+                    <ul class="sub">
+                        <li><a href="#">애견카페</a></li>
+                        <li><a href="#">애견호텔</a></li>
+                        <li><a href="#">동물병원</a></li>
+                        <li><a href="#">애견용품샵</a></li>
+                        <li><a href="#">놀이터</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="tit">PICK</a>
+                    <ul class="sub">
+                        <li><a href="#">옷 / 장난감</a></li>
+                        <li><a href="#">사료 / 간식</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <div class="box">
+            <h3>하루 체크</h2>
+            <div class="line"></div>
+            <ul>
+                <li><a href="#"><img src="images/daycheck1.png"></a></li>
+                <li><a href="#"><img src="images/daycheck2.png"></a></li>
+                <li><a href="#"><img src="images/daycheck3.png"></a></li>
+                <li><a href="#"><img src="images/daycheck4.png"></a></li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <div class="chart">
+                <canvas id="myChart"></canvas>
+                <p class="kg">(단위 : kg)</p>
+            </div>
+            
+        </div>
+
+        <div class="box">
+            <h3>최근 일주일 양치</h3>
+                <div class="wrap">
+                <div class="item">
+                    <p class="red">월<span>(6.6)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBox"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>화<span>(6.7)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBoxN"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>수<span>(6.8)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBoxN"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>목<span>(6.9)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBox"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>금<span>(6.10)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBoxN"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p class="red">토<span>(6.11)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBoxN"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p class="red">일<span>(6.12)</span></p>
+                    <div class="itemBox ">
+                        <div class="inBox"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="boxL">
+            <div class="item">
+                <p>06-09</p>
+                <div class="checkred">
+                    <div class="redline"></div>
+                </div>
+                <span class="solid"></span>
+            </div>
+
+            <div class="item">
+                <p>06-10</p>
+                <div class="check"></div>
+                <span class="txt">딱딱한 변</span>
+            </div>
+
+            <div class="item">
+                <p class="red">06-11</p>
+                <div class="check"></div>
+                <span class="txt">딱딱한 변</span>
+            </div>
+
+            <div class="item">
+                <p class="red">06-12</p>
+                <div class="iWrap">
+                <div class="left"></div>
+                <div class="right"></div>
+                </div>
+                <span class="txt">무른 변</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+const labels = [
+    '6.6',
+    '6.7',
+    '6.8',
+    '6.9',
+    '6.10',
+    '6.11',
+    '6.12'
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: '우리 아이 몸무게',
+      backgroundColor: 'rgb(163, 216, 230)',
+      borderColor: 'rgb(163, 216, 230)',
+       data: [1.50,1.50,1.49,1.49,1.50,1.50,1.50],
+
+    }]
+  };
+
+  const config = {
+
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                suggestedMin: 1.48,
+                suggestedMax: 1.50,
+                ticks:{stepSize :0.01}
+            }
+            
+            
+        }
+
+       
+    }
+
+  };
+    </script>
+
+
+
+
+
+<script>
+
+    //실행함수임 손대면안됨 
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    
+
+  </script>
+    <script>
+
+        $('.navBtn').on('click',function(){
+            $('nav').toggleClass('open');
+            $(this).toggleClass('on');
+        });
+
+       
+        $('.sub li').on('mouseover',function(){
+            $(this).css({'color' : '#ccc'});
+        }).on('mouseout',function(){
+            $(this).css({'color' : '#fff'});
+        })
+
+        $('.gnb>li>a').on('click',function(){
+            $('.sub').stop().slideUp();
+            $(this).siblings('.sub').stop().slideToggle();
+            $(this).toggleClass('open').parent().siblings()
+            .children('a').removeClass('open');
+        });
+        $('.wrap .item').on('click',function(){
+            $(this).toggleClass('on');
+        })
+
+    </script>
+</body>
+</html>
